@@ -1,0 +1,85 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+:link {
+  color: #f6659c;
+}
+
+html {
+  font-size: 1rem;
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
+  line-height: 1.5;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  padding: 4vmax;
+  background-color: #161214;
+  color: #faf9fa;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 1em 0;
+}
+
+h1 {
+  margin-block-start: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+figcaption {
+  font-size: small;
+  margin-block-start: 0.5em;
+  text-align: center;
+}
+
+figure {
+  margin-block: 3rem;
+  position: relative;
+}
+
+span {
+  position: absolute;
+  background-color: #161214;
+  padding: 1em 2em;
+  font-size: small;
+  top: 0;
+  right: 0;
+}
+
+.graphs {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.graph {
+  height: 2rem;
+  /* flex: 1; */
+  background-color: #570524;
+  position: relative;
+}
+
+.name {
+  position: absolute;
+  top: 50%;
+  left: 0.5em;
+  translate: 0 -50%;
+  font-size: small;
+  z-index: 5;
+  color: white;
+}

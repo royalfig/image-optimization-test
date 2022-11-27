@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Optimization</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Image Optimization Comparison</h1>
+
+<div class="graphs">
+    <div class="graph"></div>
+    <div class="graph"></div>
+    <div class="graph"></div>
+    <div class="graph"></div>
+    <div class="graph"></div>
+    <div class="graph"></div>
+</div>
+
+    <figure>
+      <img src="./assets/valley.jpg" alt="" />
+      <figcaption>UNOPTIMIZED</figcaption>
+    </figure>
+
+    <figure>
+      <img src="./assets/valley-resized.jpg" alt="" />
+      <figcaption>RESIZED</figcaption>
+    </figure>
+
+    <figure>
+      <img src="./assets/valley-compressed.jpg" alt="" />
+      <figcaption>COMPRESSED</figcaption>
+    </figure>
+
+    <figure>
+      <img src="./assets/valley-resized-and-compress.jpg" alt="" />
+      <figcaption>RESIZED &amp; COMPRESSED</figcaption>
+    </figure>
+
+    <figure>
+      <img src="./assets/valley.webp" alt="" />
+      <figcaption>WEBP</figcaption>
+    </figure>
+
+    <figure>
+      <img src="./assets/valley.avif" alt="" />
+      <figcaption>AVIF</figcaption>
+    </figure>
+<figure>
+    <picture>
+        
+        <img
+        sizes="(max-width: 1400px) 100vw, 1400px"
+        srcset="
+        ./assets/valley_gdhggc/valley_gdhggc_c_scale,w_200.jpg 200w,
+        ./assets/valley_gdhggc/valley_gdhggc_c_scale,w_466.jpg 466w,
+        ./assets/valley_gdhggc/valley_gdhggc_c_scale,w_644.jpg 644w,
+        ./assets/valley_gdhggc/valley_gdhggc_c_scale,w_832.jpg 832w,
+        ./assets/valley_gdhggc/valley_gdhggc_c_scale,w_954.jpg 954w,
+        ./assets/valley_gdhggc/valley_gdhggc_c_scale,w_1080.jpg 1080w,
+        ./assets/valley_gdhggc/valley_gdhggc_c_scale,w_1190.jpg 1190w,
+        ./assets/valley_gdhggc/valley_gdhggc_c_scale,w_1290.jpg 1290w,
+        ./assets/valley_gdhggc/valley_gdhggc_c_scale,w_1396.jpg 1396w,
+        ./assets/valley_gdhggc/valley_gdhggc_c_scale,w_1399.jpg 1399w,
+        ./assets/valley_gdhggc/valley_gdhggc_c_scale,w_1400.jpg 1400w"
+        src="./assets/valley_gdhggc/valley_gdhggc_c_scale,w_1400.jpg"
+        alt="">
+        </picture>
+        <figcaption>RESPONSIVE</figcaption>
+    </figure>
+    <p>
+      Photo by
+      <a
+        href="https://unsplash.com/es/@vohanian?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+        >Vahe Ohanian</a
+      >
+      on
+      <a
+        href="https://unsplash.com/t/nature?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+        >Unsplash</a
+      >
+    </p>
+
+    <script src="../index.js"></script>
+  </body>
+</html>
