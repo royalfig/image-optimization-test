@@ -9,14 +9,14 @@
   <body>
     <h1>Image Optimization Comparison</h1>
 
-<div class="graphs">
-    <div class="graph"></div>
-    <div class="graph"></div>
-    <div class="graph"></div>
-    <div class="graph"></div>
-    <div class="graph"></div>
-    <div class="graph"></div>
-</div>
+    <div class="graphs">
+      <div class="graph"></div>
+      <div class="graph"></div>
+      <div class="graph"></div>
+      <div class="graph"></div>
+      <div class="graph"></div>
+      <div class="graph"></div>
+    </div>
 
     <figure>
       <img src="./assets/valley.jpg" alt="" />
@@ -34,7 +34,7 @@
     </figure>
 
     <figure>
-      <img src="./assets/valley-resized-and-compress.jpg" alt="" />
+      <img src="./assets/valley-resized-and-compressed.jpg" alt="" />
       <figcaption>RESIZED &amp; COMPRESSED</figcaption>
     </figure>
 
@@ -47,28 +47,61 @@
       <img src="./assets/valley.avif" alt="" />
       <figcaption>AVIF</figcaption>
     </figure>
-<figure>
-    <picture>
-        
+    
+    <figure>
+      <picture>
+        <source
+          srcset="
+            ./assets/valley-300.avif   300w,
+            ./assets/valley-500.avif   500w,
+            ./assets/valley-700.avif   700w,
+            ./assets/valley-900.avif   900w,
+            ./assets/valley-1100.avif 1100w,
+            ./assets/valley-1300.avif 1300w,
+            ./assets/valley-1500.avif 1500w,
+            ./assets/valley-1700.avif 1700w,
+            ./assets/valley-1900.avif 1900w,
+            ./assets/valley-2100.avif 2100w
+          "
+          type="image/avif"
+        />
+        <source
+          srcset="
+            ./assets/valley-300.webp   300w,
+            ./assets/valley-500.webp   500w,
+            ./assets/valley-700.webp   700w,
+            ./assets/valley-900.webp   900w,
+            ./assets/valley-1100.webp 1100w,
+            ./assets/valley-1300.webp 1300w,
+            ./assets/valley-1500.webp 1500w,
+            ./assets/valley-1700.webp 1700w,
+            ./assets/valley-1900.webp 1900w,
+            ./assets/valley-2100.webp 2100w
+          "
+          type="image/webp"
+        />
         <img
-        sizes="(max-width: 1400px) 100vw, 1400px"
-        srcset="
-        ./assets/valley_gdhggc/valley_gdhggc_c_scale,w_200.jpg 200w,
-        ./assets/valley_gdhggc/valley_gdhggc_c_scale,w_466.jpg 466w,
-        ./assets/valley_gdhggc/valley_gdhggc_c_scale,w_644.jpg 644w,
-        ./assets/valley_gdhggc/valley_gdhggc_c_scale,w_832.jpg 832w,
-        ./assets/valley_gdhggc/valley_gdhggc_c_scale,w_954.jpg 954w,
-        ./assets/valley_gdhggc/valley_gdhggc_c_scale,w_1080.jpg 1080w,
-        ./assets/valley_gdhggc/valley_gdhggc_c_scale,w_1190.jpg 1190w,
-        ./assets/valley_gdhggc/valley_gdhggc_c_scale,w_1290.jpg 1290w,
-        ./assets/valley_gdhggc/valley_gdhggc_c_scale,w_1396.jpg 1396w,
-        ./assets/valley_gdhggc/valley_gdhggc_c_scale,w_1399.jpg 1399w,
-        ./assets/valley_gdhggc/valley_gdhggc_c_scale,w_1400.jpg 1400w"
-        src="./assets/valley_gdhggc/valley_gdhggc_c_scale,w_1400.jpg"
-        alt="">
-        </picture>
-        <figcaption>RESPONSIVE</figcaption>
+          sizes="100vw"
+          srcset="
+            ./assets/valley-300.jpg   300w,
+            ./assets/valley-500.jpg   500w,
+            ./assets/valley-700.jpg   700w,
+            ./assets/valley-900.jpg   900w,
+            ./assets/valley-1100.jpg 1100w,
+            ./assets/valley-1300.jpg 1300w,
+            ./assets/valley-1500.jpg 1500w,
+            ./assets/valley-1700.jpg 1700w,
+            ./assets/valley-1900.jpg 1900w,
+            ./assets/valley-2100.jpg 2100w
+          "
+          src="./assets/valley-1100.jpg"
+          alt=""
+        />
+      </picture>
+      <figcaption>RESPONSIVE</figcaption>
     </figure>
+
+    <hr>
     <p>
       Photo by
       <a
