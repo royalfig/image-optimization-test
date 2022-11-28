@@ -26,7 +26,7 @@ window.addEventListener("load", () => {
     const resources = performance.getEntriesByType("resource")
 
     resources.forEach(resource => {
-
+        console.log(resource)
         if (resource.initiatorType === "img") {
             const lastSlash = resource.name.lastIndexOf("/")
             const filename = resource.name.slice(lastSlash + 1)
@@ -34,8 +34,8 @@ window.addEventListener("load", () => {
             if (!img) return;
             const parent = img.closest('figure');
             const caption = parent.querySelector('figcaption').textContent;
-            const duration = Math.round(resource.responseEnd - resource.responseStart);
-            durations.push({ name: caption, duration, size: resource.encodedBodySize })
+            const duration = Math.round(resource.duration);
+            durations.push({ name: caption, duration, size: resource.encodedBodySize || null })
             const span = document.createElement('span')
             span.classList.add("time")
             span.textContent = formatDuration(duration)
@@ -54,7 +54,7 @@ window.addEventListener("load", () => {
 
         const name = document.createElement('div')
         name.classList.add('name')
-        name.textContent = `${el.name} (${formatDuration(el.duration)}, ${getReadableFileSizeString(el.size)})`
+        name.textContent = `${el.name} (${formatDuration(el.duration)}${el.size ? ", " + getReadableFileSizeString(el.size) : ""})`
 
         const duration = document.createElement('div')
         const amount = Number(el.duration / max).toFixed(2) * 100
