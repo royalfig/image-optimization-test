@@ -27,12 +27,10 @@ window.addEventListener("load", () => {
 
     resources.forEach(resource => {
 
-        console.log(resource)
         if (resource.initiatorType === "img") {
             const lastSlash = resource.name.lastIndexOf("/")
             const filename = resource.name.slice(lastSlash + 1)
             const img = document.querySelector(`[src*="${filename}"]`) || document.querySelector(`[srcset*="${filename}"]`)
-            console.log(filename,img)
             if (!img) return;
             const parent = img.closest('figure');
             const caption = parent.querySelector('figcaption').textContent;
@@ -46,7 +44,6 @@ window.addEventListener("load", () => {
     })
 
     const sorted = durations.sort((a, b) => a.duration - b.duration)
-    console.log(sorted)
     const max = sorted[sorted.length - 1].duration
     const graphs = document.querySelector('.graphs')
     graphs.innerHTML = ""
