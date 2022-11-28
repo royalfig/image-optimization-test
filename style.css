@@ -60,6 +60,9 @@ span {
   top: 0;
   right: 0;
 }
+.description {
+  margin-block-end: 1rem;
+}
 
 .graphs {
   display: flex;
