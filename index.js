@@ -34,7 +34,7 @@ window.addEventListener("load", () => {
             if (!img) return;
             const parent = img.closest('figure');
             const caption = parent.querySelector('figcaption').textContent;
-            const duration = Math.round(resource.duration);
+            const duration = Math.round(resource.responseEnd - resource.responseStart);
             durations.push({ name: caption, duration, size: resource.encodedBodySize || null })
             const span = document.createElement('span')
             span.classList.add("time")

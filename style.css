@@ -90,3 +90,8 @@ hr {
   height: 2px;
   background-image: linear-gradient(to right, #570524,#860838,#570524);
 }
+
+.credit {
+  text-align: center;
+  font-size: small;
+}
