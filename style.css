@@ -55,7 +55,7 @@ figure {
 }
 
 .loading figure {
-  animation: image-load 5s ease  infinite  ;
+  animation: image-load 5s ease infinite alternate;
 }
 
 @keyframes image-load {
@@ -127,7 +127,6 @@ span {
   animation-delay: 700ms;
 }
 
-
 @keyframes grow-right {
   0% {
     scale: 0 100%;
@@ -153,7 +152,7 @@ hr {
   margin-block: 2rem;
   border: none;
   height: 2px;
-  background-image: linear-gradient(to right, #570524,#860838,#570524);
+  background-image: linear-gradient(to right, #570524, #860838, #570524);
 }
 
 .credit {
