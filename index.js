@@ -14,14 +14,13 @@ const formatDuration = ms => {
       .join(', ');
   };
 
-function getReadableFileSizeString(fileSizeInBytes) {
+const getReadableFileSizeString = fileSizeInBytes => {
     var i = fileSizeInBytes == 0 ? 0 : Math.floor(Math.log(fileSizeInBytes) / Math.log(1024));
     return (fileSizeInBytes / Math.pow(1024, i)).toFixed(2) * 1 + ' ' + ['B', 'kB', 'MB', 'GB', 'TB'][i];
 }
 
 window.addEventListener("load", () => {
     let durations = [];
-
 
     const resources = performance.getEntriesByType("resource")
 
@@ -46,6 +45,7 @@ window.addEventListener("load", () => {
     const sorted = durations.sort((a, b) => a.duration - b.duration)
     const max = sorted[sorted.length - 1].duration
     const graphs = document.querySelector('.graphs')
+    document.body.classList.toggle('loading')
     graphs.innerHTML = ""
 
     sorted.forEach(el => {
@@ -66,7 +66,6 @@ window.addEventListener("load", () => {
 
         div.append(inner)
         div.append(name)
-        // div.append(duration)
 
         graphs.append(div)
     })

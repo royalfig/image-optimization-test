@@ -43,13 +43,25 @@ img {
 
 figcaption {
   font-size: small;
-  margin-block-start: 0.5em;
+  padding-block-start: 0.5em;
   text-align: center;
+  background-color: #161214;
 }
 
 figure {
   margin-block: 3rem;
   position: relative;
+  background: #570524;
+}
+
+.loading figure {
+  animation: image-load 5s ease  infinite  ;
+}
+
+@keyframes image-load {
+  100% {
+    background-color: #161214;
+  }
 }
 
 span {
@@ -75,6 +87,56 @@ span {
   /* flex: 1; */
   background-color: #570524;
   position: relative;
+}
+
+.loading .graph:after {
+  opacity: 0;
+  width: 100%;
+  background-color: #860838;
+  content: "";
+  height: 100%;
+  display: block;
+  animation: grow-right 5s ease-in infinite;
+  transform-origin: left;
+}
+
+.loading .graph:nth-child(2):after {
+  animation-delay: 100ms;
+}
+
+.loading .graph:nth-child(3):after {
+  animation-delay: 200ms;
+}
+
+.loading .graph:nth-child(4):after {
+  animation-delay: 300ms;
+}
+
+.loading .graph:nth-child(5):after {
+  animation-delay: 400ms;
+}
+
+.loading .graph:nth-child(5):after {
+  animation-delay: 500ms;
+}
+
+.loading .graph:nth-child(6):after {
+  animation-delay: 600ms;
+}
+.loading .graph:nth-child(7):after {
+  animation-delay: 700ms;
+}
+
+
+@keyframes grow-right {
+  0% {
+    scale: 0 100%;
+    opacity: 1;
+  }
+
+  100% {
+    scale: 100% 100%;
+  }
 }
 
 .name {
