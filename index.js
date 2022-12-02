@@ -19,6 +19,97 @@ const getReadableFileSizeString = fileSizeInBytes => {
     return (fileSizeInBytes / Math.pow(1024, i)).toFixed(2) * 1 + ' ' + ['B', 'kB', 'MB', 'GB', 'TB'][i];
 }
 
+const renderImages = () => {
+    const template = `<figure>
+    <picture>
+      <source
+        srcset="
+          ./assets/cactus-300.avif?cb=${Date.now()} 300w,
+          ./assets/cactus-500.avif?cb=${Date.now()} 500w,
+          ./assets/cactus-700.avif?cb=${Date.now()} 700w,
+          ./assets/cactus-900.avif?cb=${Date.now()} 900w,
+          ./assets/cactus-1100.avif?cb=${Date.now()} 1100w,
+          ./assets/cactus-1300.avif?cb=${Date.now()} 1300w,
+          ./assets/cactus-1500.avif?cb=${Date.now()} 1500w,
+          ./assets/cactus-1700.avif?cb=${Date.now()} 1700w,
+          ./assets/cactus-1900.avif?cb=${Date.now()} 1900w,
+          ./assets/cactus-2100.avif?cb=${Date.now()} 2100w
+        "
+        type="image/avif"
+      />
+      <source
+        srcset="
+          ./assets/cactus-300.webp?cb=${Date.now()} 300w,
+          ./assets/cactus-500.webp?cb=${Date.now()} 500w,
+          ./assets/cactus-700.webp?cb=${Date.now()} 700w,
+          ./assets/cactus-900.webp?cb=${Date.now()} 900w,
+          ./assets/cactus-1100.webp?cb=${Date.now()} 1100w,
+          ./assets/cactus-1300.webp?cb=${Date.now()} 1300w,
+          ./assets/cactus-1500.webp?cb=${Date.now()} 1500w,
+          ./assets/cactus-1700.webp?cb=${Date.now()} 1700w,
+          ./assets/cactus-1900.webp?cb=${Date.now()} 1900w,
+          ./assets/cactus-2100.webp?cb=${Date.now()} 2100w
+        "
+        type="image/webp"
+      />
+      <img
+        sizes="100vw"
+        srcset="
+          ./assets/cactus-300.jpg?cb=${Date.now()} 300w,
+          ./assets/cactus-500.jpg?cb=${Date.now()} 500w,
+          ./assets/cactus-700.jpg?cb=${Date.now()} 700w,
+          ./assets/cactus-900.jpg?cb=${Date.now()} 900w,
+          ./assets/cactus-1100.jpg?cb=${Date.now()} 1100w,
+          ./assets/cactus-1300.jpg?cb=${Date.now()} 1300w,
+          ./assets/cactus-1500.jpg?cb=${Date.now()} 1500w,
+          ./assets/cactus-1700.jpg?cb=${Date.now()} 1700w,
+          ./assets/cactus-1900.jpg?cb=${Date.now()} 1900w,
+          ./assets/cactus-2100.jpg?cb=${Date.now()} 2100w
+        "
+        src="./assets/cactus-1100.jpg?cb=${Date.now()}"
+        alt="Cactus image loaded responsively"
+      />
+    </picture>
+    <figcaption>RESPONSIVE</figcaption>
+  </figure>
+
+  <figure>
+    <img src="./assets/cactus-resized-and-compressed.jpg?cb=${Date.now()}" alt="Cactus image, resized and compressed" />
+    <figcaption>RESIZED &amp; COMPRESSED</figcaption>
+  </figure>
+
+  <figure>
+    <img src="./assets/cactus-resized.jpg?cb=${Date.now()}" alt="Cactus image, resized" />
+    <figcaption>RESIZED</figcaption>
+  </figure>
+
+  <figure>
+    <img src="./assets/cactus.avif?cb=${Date.now()}" alt="Cactus image in AVIF format" />
+    <figcaption>AVIF</figcaption>
+  </figure>
+  
+  <figure>
+    <img src="./assets/cactus.webp?cb=${Date.now()}" alt="Cactus image in WEBP format" />
+    <figcaption>WEBP</figcaption>
+  </figure>
+
+  <figure>
+    <img src="./assets/cactus-compressed.jpg?cb=${Date.now()}" alt="Cactus image, compressed" />
+    <figcaption>COMPRESSED</figcaption>
+  </figure>
+
+  <figure>
+    <img src="./assets/cactus.jpg?cb=${Date.now()}" alt="Cactus image, unoptimized" />
+    <figcaption>UNOPTIMIZED</figcaption>
+  </figure>`
+
+  const imageContainer = document.querySelector(".images");
+
+  imageContainer.innerHTML = template;
+}
+
+renderImages()
+
 window.addEventListener("load", () => {
     let durations = [];
 
