@@ -1,26 +1,32 @@
-
-const formatDuration = ms => {
-    if (ms < 0) ms = -ms;
-    const time = {
-      day: Math.floor(ms / 86400000),
-      hour: Math.floor(ms / 3600000) % 24,
-      minute: Math.floor(ms / 60000) % 60,
-      second: Math.floor(ms / 1000) % 60,
-      millisecond: Math.floor(ms) % 1000
-    };
-    return Object.entries(time)
-      .filter(val => val[1] !== 0)
-      .map(val => val[1] + ' ' + (val[1] !== 1 ? val[0] + 's' : val[0]))
-      .join(', ');
+const formatDuration = (ms) => {
+  if (ms < 0) ms = -ms;
+  const time = {
+    day: Math.floor(ms / 86400000),
+    hour: Math.floor(ms / 3600000) % 24,
+    minute: Math.floor(ms / 60000) % 60,
+    second: Math.floor(ms / 1000) % 60,
+    millisecond: Math.floor(ms) % 1000,
   };
+  return Object.entries(time)
+    .filter((val) => val[1] !== 0)
+    .map((val) => val[1] + " " + (val[1] !== 1 ? val[0] + "s" : val[0]))
+    .join(", ");
+};
 
-const getReadableFileSizeString = fileSizeInBytes => {
-    var i = fileSizeInBytes == 0 ? 0 : Math.floor(Math.log(fileSizeInBytes) / Math.log(1024));
-    return (fileSizeInBytes / Math.pow(1024, i)).toFixed(2) * 1 + ' ' + ['B', 'kB', 'MB', 'GB', 'TB'][i];
-}
+const getReadableFileSizeString = (fileSizeInBytes) => {
+  var i =
+    fileSizeInBytes == 0
+      ? 0
+      : Math.floor(Math.log(fileSizeInBytes) / Math.log(1024));
+  return (
+    (fileSizeInBytes / Math.pow(1024, i)).toFixed(2) * 1 +
+    " " +
+    ["B", "kB", "MB", "GB", "TB"][i]
+  );
+};
 
 const renderImages = () => {
-    const template = `<figure>
+  const template = `<figure>
     <picture>
       <source
         srcset="
@@ -68,97 +74,107 @@ const renderImages = () => {
         "
         src="./assets/cactus-1100.jpg?cb=${Date.now()}"
         alt="Cactus image loaded responsively"
+        width="2100"
+        height="1425"
       />
     </picture>
     <figcaption>RESPONSIVE</figcaption>
   </figure>
 
   <figure>
-    <img src="./assets/cactus-resized-and-compressed.jpg?cb=${Date.now()}" alt="Cactus image, resized and compressed" />
+    <img src="./assets/cactus-resized-and-compressed.jpg?cb=${Date.now()}" alt="Cactus image, resized and compressed" width="1500" height="1018" />
     <figcaption>RESIZED &amp; COMPRESSED</figcaption>
   </figure>
 
   <figure>
-    <img src="./assets/cactus-resized.jpg?cb=${Date.now()}" alt="Cactus image, resized" />
+    <img src="./assets/cactus-resized.jpg?cb=${Date.now()}" alt="Cactus image, resized" width="1500" height="1018" />
     <figcaption>RESIZED</figcaption>
   </figure>
 
   <figure>
-    <img src="./assets/cactus.avif?cb=${Date.now()}" alt="Cactus image in AVIF format" />
+    <img src="./assets/cactus.avif?cb=${Date.now()}" alt="Cactus image in AVIF format" width="4678" height="3175" />
     <figcaption>AVIF</figcaption>
   </figure>
   
   <figure>
-    <img src="./assets/cactus.webp?cb=${Date.now()}" alt="Cactus image in WEBP format" />
+    <img src="./assets/cactus.webp?cb=${Date.now()}" alt="Cactus image in WEBP format" width="4678" height="3175" />
     <figcaption>WEBP</figcaption>
   </figure>
 
   <figure>
-    <img src="./assets/cactus-compressed.jpg?cb=${Date.now()}" alt="Cactus image, compressed" />
+    <img src="./assets/cactus-compressed.jpg?cb=${Date.now()}" alt="Cactus image, compressed" width="4678" height="3175" />
     <figcaption>COMPRESSED</figcaption>
   </figure>
 
   <figure>
-    <img src="./assets/cactus.jpg?cb=${Date.now()}" alt="Cactus image, unoptimized" />
+    <img src="./assets/cactus.jpg?cb=${Date.now()}" alt="Cactus image, unoptimized" width="4678" height="3175" />
     <figcaption>UNOPTIMIZED</figcaption>
-  </figure>`
+  </figure>`;
 
   const imageContainer = document.querySelector(".images");
 
   imageContainer.innerHTML = template;
-}
+};
 
-renderImages()
+renderImages();
 
 window.addEventListener("load", () => {
-    let durations = [];
+  let durations = [];
 
-    const resources = performance.getEntriesByType("resource")
+  const resources = performance.getEntriesByType("resource");
 
-    resources.forEach(resource => {
-        console.log(resource)
-        if (resource.initiatorType === "img") {
-            const lastSlash = resource.name.lastIndexOf("/")
-            const filename = resource.name.slice(lastSlash + 1)
-            const img = document.querySelector(`[src*="${filename}"]`) || document.querySelector(`[srcset*="${filename}"]`)
-            if (!img) return;
-            const parent = img.closest('figure');
-            const caption = parent.querySelector('figcaption').textContent;
-            const duration = Math.round(resource.responseEnd - resource.responseStart);
-            durations.push({ name: caption, duration, size: resource.encodedBodySize || null })
-            const span = document.createElement('span')
-            span.classList.add("time")
-            span.textContent = formatDuration(duration)
-            parent.append(span)
-        }
-    })
+  resources.forEach((resource) => {
+    console.log(resource);
+    if (resource.initiatorType === "img") {
+      const lastSlash = resource.name.lastIndexOf("/");
+      const filename = resource.name.slice(lastSlash + 1);
+      const img =
+        document.querySelector(`[src*="${filename}"]`) ||
+        document.querySelector(`[srcset*="${filename}"]`);
+      if (!img) return;
+      const parent = img.closest("figure");
+      const caption = parent.querySelector("figcaption").textContent;
+      const duration = Math.round(
+        resource.responseEnd - resource.responseStart
+      );
+      durations.push({
+        name: caption,
+        duration,
+        size: resource.encodedBodySize || null,
+      });
+      const span = document.createElement("span");
+      span.classList.add("time");
+      span.textContent = formatDuration(duration);
+      parent.append(span);
+    }
+  });
 
-    const sorted = durations.sort((a, b) => a.duration - b.duration)
-    const max = sorted[sorted.length - 1].duration
-    const graphs = document.querySelector('.graphs')
-    document.body.classList.toggle('loading')
-    graphs.innerHTML = ""
+  const sorted = durations.sort((a, b) => a.duration - b.duration);
+  const max = sorted[sorted.length - 1].duration;
+  const graphs = document.querySelector(".graphs");
+  document.body.classList.toggle("loading");
+  graphs.innerHTML = "";
 
-    sorted.forEach(el => {
-        const div = document.createElement('div')
-        div.classList.add('graph')
+  sorted.forEach((el) => {
+    const div = document.createElement("div");
+    div.classList.add("graph");
 
-        const name = document.createElement('div')
-        name.classList.add('name')
-        name.textContent = `${el.name} (${formatDuration(el.duration)}${el.size ? ", " + getReadableFileSizeString(el.size) : ""})`
+    const name = document.createElement("div");
+    name.classList.add("name");
+    name.textContent = `${el.name} (${formatDuration(el.duration)}${
+      el.size ? ", " + getReadableFileSizeString(el.size) : ""
+    })`;
 
-        const duration = document.createElement('div')
-        const amount = Number(el.duration / max).toFixed(2) * 100
-        duration.textContent = amount
+    const duration = document.createElement("div");
+    const amount = Number(el.duration / max).toFixed(2) * 100;
+    duration.textContent = amount;
 
-        const inner = document.createElement('div')
-        inner.style = `width: ${amount}%; height: 100%; background: #e70e60`
+    const inner = document.createElement("div");
+    inner.style = `width: ${amount}%; height: 100%; background: #e70e60`;
 
+    div.append(inner);
+    div.append(name);
 
-        div.append(inner)
-        div.append(name)
-
-        graphs.append(div)
-    })
-})
-
+    graphs.append(div);
+  });
+});
