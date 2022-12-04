@@ -56,6 +56,13 @@ figure {
   background: #570524;
 }
 
+.title,
+.images,
+.graphs {
+  margin-inline: auto;
+  max-width: 65rem;
+}
+
 .loading figure {
   animation: image-load 5s ease infinite alternate;
 }
@@ -73,9 +80,11 @@ span {
   font-size: small;
   top: 0;
   right: 0;
+  font-family: monospace;
 }
+
 .description {
-  margin-block-end: 1rem;
+  margin-block-end: 2rem;
 }
 
 .graphs {
@@ -148,6 +157,7 @@ span {
   font-size: small;
   z-index: 5;
   color: white;
+  font-family: monospace;
 }
 
 hr {

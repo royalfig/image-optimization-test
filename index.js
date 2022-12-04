@@ -160,7 +160,7 @@ window.addEventListener("load", () => {
     const name = document.createElement("div");
     name.classList.add("name");
     name.textContent = `${el.name} (${formatDuration(el.duration)}${
-      el.size ? ", " + getReadableFileSizeString(el.size) : ""
+      el.size ? " - " + getReadableFileSizeString(el.size) : ""
     })`;
 
     const duration = document.createElement("div");

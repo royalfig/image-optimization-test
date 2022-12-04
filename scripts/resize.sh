@@ -14,7 +14,7 @@ params="-sampling-factor 4:2:0 -strip -quality 75 -interlace Plane"
 echo "Working on resized and compressed"
 magick $1 -resize 1500 $filename-resized.jpg
 magick $1 $params $filename-compressed.jpg
-magick $1 -resize 1500 $params $filename-resized-and-compressed.jpg
+magick $filename-compressed.jpg $params $filename-resized-and-compressed.jpg
 magick $1 $filename.avif
 magick $1 $filename.webp
 
