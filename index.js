@@ -134,9 +134,7 @@ window.addEventListener("load", () => {
       if (!img) return;
       const parent = img.closest("figure");
       const caption = parent.querySelector("figcaption").textContent;
-      const duration = Math.round(
-        resource.responseEnd - resource.responseStart
-      );
+      const duration = Math.round(resource.responseEnd - resource.requestStart);
       durations.push({
         name: caption,
         duration,
