@@ -157,7 +157,8 @@ span {
   font-size: small;
   z-index: 5;
   color: white;
-  font-family: monospace;
+  font-family: "JetBrains Mono", "Cascadia Code", "Fira Sans", monospace;
+  letter-spacing: 0.2px;
 }
 
 hr {

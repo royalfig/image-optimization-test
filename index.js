@@ -48,52 +48,53 @@ const renderImages = () => {
     <picture>
       <source
         srcset="
-          ./assets/cactus-300.avif?cb=${Date.now()} 300w,
-          ./assets/cactus-500.avif?cb=${Date.now()} 500w,
-          ./assets/cactus-700.avif?cb=${Date.now()} 700w,
-          ./assets/cactus-900.avif?cb=${Date.now()} 900w,
-          ./assets/cactus-1100.avif?cb=${Date.now()} 1100w,
-          ./assets/cactus-1300.avif?cb=${Date.now()} 1300w,
-          ./assets/cactus-1500.avif?cb=${Date.now()} 1500w,
-          ./assets/cactus-1700.avif?cb=${Date.now()} 1700w,
-          ./assets/cactus-1900.avif?cb=${Date.now()} 1900w,
-          ./assets/cactus-2100.avif?cb=${Date.now()} 2100w
+          assets/cactus-300.avif?cb=${Date.now()} 300w,
+          assets/cactus-500.avif?cb=${Date.now()} 500w,
+          assets/cactus-700.avif?cb=${Date.now()} 700w,
+          assets/cactus-900.avif?cb=${Date.now()} 900w,
+          assets/cactus-1100.avif?cb=${Date.now()} 1100w,
+          assets/cactus-1300.avif?cb=${Date.now()} 1300w,
+          assets/cactus-1500.avif?cb=${Date.now()} 1500w,
+          assets/cactus-1700.avif?cb=${Date.now()} 1700w,
+          assets/cactus-1900.avif?cb=${Date.now()} 1900w,
+          assets/cactus-2100.avif?cb=${Date.now()} 2100w
         "
+        sizes="(max-width: 1300px) 100vw, (min-width: 1300px) 1300px"
         type="image/avif"
       />
       <source
         srcset="
-          ./assets/cactus-300.webp?cb=${Date.now()} 300w,
-          ./assets/cactus-500.webp?cb=${Date.now()} 500w,
-          ./assets/cactus-700.webp?cb=${Date.now()} 700w,
-          ./assets/cactus-900.webp?cb=${Date.now()} 900w,
-          ./assets/cactus-1100.webp?cb=${Date.now()} 1100w,
-          ./assets/cactus-1300.webp?cb=${Date.now()} 1300w,
-          ./assets/cactus-1500.webp?cb=${Date.now()} 1500w,
-          ./assets/cactus-1700.webp?cb=${Date.now()} 1700w,
-          ./assets/cactus-1900.webp?cb=${Date.now()} 1900w,
-          ./assets/cactus-2100.webp?cb=${Date.now()} 2100w
+          assets/cactus-300.webp?cb=${Date.now()} 300w,
+          assets/cactus-500.webp?cb=${Date.now()} 500w,
+          assets/cactus-700.webp?cb=${Date.now()} 700w,
+          assets/cactus-900.webp?cb=${Date.now()} 900w,
+          assets/cactus-1100.webp?cb=${Date.now()} 1100w,
+          assets/cactus-1300.webp?cb=${Date.now()} 1300w,
+          assets/cactus-1500.webp?cb=${Date.now()} 1500w,
+          assets/cactus-1700.webp?cb=${Date.now()} 1700w,
+          assets/cactus-1900.webp?cb=${Date.now()} 1900w,
+          assets/cactus-2100.webp?cb=${Date.now()} 2100w
         "
+        sizes="(max-width: 1300px) 100vw, (min-width: 1300px) 1300px"
         type="image/webp"
       />
       <img
-        sizes="(max-width: 1300px) 100vw, (min-width: 1300px) 1300px"
         srcset="
-          ./assets/cactus-300.jpg?cb=${Date.now()} 300w,
-          ./assets/cactus-500.jpg?cb=${Date.now()} 500w,
-          ./assets/cactus-700.jpg?cb=${Date.now()} 700w,
-          ./assets/cactus-900.jpg?cb=${Date.now()} 900w,
-          ./assets/cactus-1100.jpg?cb=${Date.now()} 1100w,
-          ./assets/cactus-1300.jpg?cb=${Date.now()} 1300w,
-          ./assets/cactus-1500.jpg?cb=${Date.now()} 1500w,
-          ./assets/cactus-1700.jpg?cb=${Date.now()} 1700w,
-          ./assets/cactus-1900.jpg?cb=${Date.now()} 1900w,
-          ./assets/cactus-2100.jpg?cb=${Date.now()} 2100w
+          assets/cactus-300.jpg?cb=${Date.now()} 300w,
+          assets/cactus-500.jpg?cb=${Date.now()} 500w,
+          assets/cactus-700.jpg?cb=${Date.now()} 700w,
+          assets/cactus-900.jpg?cb=${Date.now()} 900w,
+          assets/cactus-1100.jpg?cb=${Date.now()} 1100w,
+          assets/cactus-1300.jpg?cb=${Date.now()} 1300w,
+          assets/cactus-1500.jpg?cb=${Date.now()} 1500w,
+          assets/cactus-1700.jpg?cb=${Date.now()} 1700w,
+          assets/cactus-1900.jpg?cb=${Date.now()} 1900w,
+          assets/cactus-2100.jpg?cb=${Date.now()} 2100w
         "
-        src="./assets/cactus-1100.jpg?cb=${Date.now()}"
+        sizes="(max-width: 1300px) 100vw, (min-width: 1300px) 1300px"
+        src="assets/cactus-1100.jpg?cb=${Date.now()}"
         alt="Cactus image loaded responsively"
-        width="1100"
-        height="747"
+        
       />
     </picture>
     <figcaption>RESPONSIVE</figcaption>
