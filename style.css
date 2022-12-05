@@ -5,8 +5,9 @@
   padding: 0;
 }
 
-:link {
-  color: #f6659c;
+:link,
+:visited {
+  color: #e99e5b;
 }
 
 html {
@@ -19,8 +20,8 @@ html {
 
 body {
   padding: 2vmax 4vmax;
-  background-color: #161214;
-  color: #faf9fa;
+  background-color: #2d1b19;
+  color: #dcc29d;
 }
 
 h1,
@@ -44,16 +45,15 @@ img {
 }
 
 figcaption {
-  font-size: small;
   padding-block-start: 0.5em;
   text-align: center;
-  background-color: #161214;
+  background-color: #2d1b19;
 }
 
 figure {
   margin-block: 3rem;
   position: relative;
-  background: #570524;
+  background: #c96649;
 }
 
 .title,
@@ -69,13 +69,13 @@ figure {
 
 @keyframes image-load {
   100% {
-    background-color: #161214;
+    background-color: #e89d5a;
   }
 }
 
 span {
   position: absolute;
-  background-color: #570524;
+  background-color: #2f1d1a;
   padding: 1em 2em;
   font-size: small;
   top: 0;
@@ -94,16 +94,16 @@ span {
 }
 
 .graph {
-  height: 2rem;
+  height: 3rem;
   /* flex: 1; */
-  background-color: #570524;
+  background-color: #49412a;
   position: relative;
 }
 
 .loading .graph:after {
   opacity: 0;
   width: 100%;
-  background-color: #860838;
+  background-color: #7c7048;
   content: "";
   height: 100%;
   display: block;
@@ -154,18 +154,26 @@ span {
   top: 50%;
   left: 0.5em;
   translate: 0 -50%;
-  font-size: small;
+  /* font-size: small; */
   z-index: 5;
   color: white;
-  font-family: "JetBrains Mono", "Cascadia Code", "Fira Sans", monospace;
+  /* font-family: "JetBrains Mono", "Cascadia Code", "Fira Sans", monospace; */
   letter-spacing: 0.2px;
+  display: flex;
+  gap: 1rem;
+}
+
+.name > div {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 
 hr {
   margin-block: 2rem;
   border: none;
   height: 2px;
-  background-image: linear-gradient(to right, #570524, #860838, #570524);
+  background-image: linear-gradient(to right, #49412a, #e99e5b, #49412a);
 }
 
 .credit {
