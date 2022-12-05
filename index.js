@@ -1,16 +1,34 @@
 const formatDuration = (ms) => {
   if (ms < 0) ms = -ms;
+
   const time = {
-    day: Math.floor(ms / 86400000),
-    hour: Math.floor(ms / 3600000) % 24,
-    minute: Math.floor(ms / 60000) % 60,
-    second: Math.floor(ms / 1000) % 60,
-    millisecond: Math.floor(ms) % 1000,
+    d: Math.floor(ms / 86400000),
+    h: Math.floor(ms / 3600000) % 24,
+    m: Math.floor(ms / 60000) % 60,
+    s: Math.floor(ms / 1000) % 60,
+    ms: Math.floor(ms) % 1000,
   };
-  return Object.entries(time)
+
+  const times = Object.entries(time).filter((val) => val[1] !== 0);
+
+  if (times.length === 2 && times[0][0] === "s" && times[1][0] === "ms") {
+    return (
+      times[0][1] + "." + (times[1][1] / 1000).toFixed(2).substring(2) + " s"
+    );
+  }
+
+  // return
+
+  const d = Object.entries(time)
     .filter((val) => val[1] !== 0)
-    .map((val) => val[1] + " " + (val[1] !== 1 ? val[0] + "s" : val[0]))
-    .join(", ");
+    .map((val) => {
+      // if (val[0] === "ms") {
+      //   return "." + Math.floor(1000 / val[1]) + " s";
+      // }
+      return val[1] + " " + val[0];
+    });
+
+  return d.join(", ");
 };
 
 const getReadableFileSizeString = (fileSizeInBytes) => {
@@ -59,7 +77,7 @@ const renderImages = () => {
         type="image/webp"
       />
       <img
-        sizes="100vw"
+        sizes="(max-width: 1300px) 100vw, 1300px"
         srcset="
           ./assets/cactus-300.jpg?cb=${Date.now()} 300w,
           ./assets/cactus-500.jpg?cb=${Date.now()} 500w,
@@ -74,8 +92,8 @@ const renderImages = () => {
         "
         src="./assets/cactus-1100.jpg?cb=${Date.now()}"
         alt="Cactus image loaded responsively"
-        width="2100"
-        height="1425"
+        width="1100"
+        height="747"
       />
     </picture>
     <figcaption>RESPONSIVE</figcaption>
