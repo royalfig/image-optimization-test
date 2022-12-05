@@ -77,7 +77,7 @@ const renderImages = () => {
         type="image/webp"
       />
       <img
-        sizes="(max-width: 1300px) 100vw, 1300px"
+        sizes="(max-width: 1300px) 100vw, (min-width: 1300px) 1300px"
         srcset="
           ./assets/cactus-300.jpg?cb=${Date.now()} 300w,
           ./assets/cactus-500.jpg?cb=${Date.now()} 500w,
