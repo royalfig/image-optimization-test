@@ -19,9 +19,15 @@ html {
 }
 
 body {
-  padding: 2vmax 4vmax;
+  padding: 1rem;
   background-color: #2d1b19;
   color: #dcc29d;
+}
+
+@media (min-width: 768px) {
+  body {
+    padding: 2vmax 4vmax;
+  }
 }
 
 h1,
@@ -31,6 +37,7 @@ h4,
 h5,
 h6 {
   margin: 1em 0;
+  line-height: 1.3;
 }
 
 h1 {
@@ -154,13 +161,19 @@ span {
   top: 50%;
   left: 0.5em;
   translate: 0 -50%;
-  /* font-size: small; */
+  font-size: small;
   z-index: 5;
   color: white;
   /* font-family: "JetBrains Mono", "Cascadia Code", "Fira Sans", monospace; */
   letter-spacing: 0.2px;
   display: flex;
   gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .name {
+    font-size: 1rem;
+  }
 }
 
 .name > div {
